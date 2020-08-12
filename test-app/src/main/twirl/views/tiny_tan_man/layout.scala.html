@@ -1,0 +1,25 @@
+@import test.app.TinyTanMan
+@(title: String, tinyTanMans: List[TinyTanMan])
+@views.html.layouts.application(title) {
+  <table><tr><td><h1>@title</h1></td><td><a href="@TinyTanMan.addUrl">Add new</a></td><td><a href="@TinyTanMan.indexUrl">All TinyTanMans</a></td></tr></table>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Size</th>
+      <th>Created</th>
+      <th>Last Updated</th>
+    </tr>
+  @tinyTanMans.map{ tinyTanMan =>
+    <tr>
+      <td><a href="@tinyTanMan.showUrl">@tinyTanMan.id</a></td>
+      <td>@tinyTanMan.name</td>
+      <td>@tinyTanMan.size</td>
+      <td>@tinyTanMan.createdAt</td>
+      <td>@tinyTanMan.updatedAt</td>
+      <td><a href="@tinyTanMan.editUrl">Edit</a></td>
+      <td><a href="@tinyTanMan.destroyUrl">Delete</a></td>
+    </tr>
+  }
+  </table>
+}

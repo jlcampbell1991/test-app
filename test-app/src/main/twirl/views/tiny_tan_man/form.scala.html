@@ -1,0 +1,11 @@
+@import test.app.TinyTanMan
+@(title: String, tinyTanMan: Option[TinyTanMan], action: String, method: String)
+
+@views.html.layouts.application(title) {
+  <h1 class="formTitle">@title</h1>
+  <form action="@action" method="@method" id="tinyTanManForm">
+    name: <input type="text" name="name">
+    size: <input type="number" name="size">
+    <input type="submit" value="Submit" id="formButton">
+  </form>
+}
